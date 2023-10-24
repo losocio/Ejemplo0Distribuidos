@@ -11,6 +11,9 @@ typedef enum{
 	
 }operacionesEnum;
 
+#define MSG_OK 1
+#define MSG_NOK 0
+
 typedef struct __attribute__((packed))
 {
 	operacionesEnum tipoOperacion; //tipo operacion

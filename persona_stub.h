@@ -18,7 +18,7 @@ typedef enum personaOp{
 
 
 class Persona{
-        private:
+        private: //TODO Cambiar ip cada vez
 		std::string ip="172.31.74.9";
 		int port=60000;
 		connection_t serverConnection;
@@ -27,7 +27,7 @@ class Persona{
                 Persona(){
 			//conectar con servidor
 			serverConnection=initClient(ip,port);
-			personaOP op=constructorOp;
+			personaOp op=constructorOp;
 			std::vector<unsigned char> rpcOut;
 			std::vector<unsigned char> rpcIn;
 
@@ -42,7 +42,7 @@ class Persona{
 
                 //Destructor
                 ~Persona(){
-			personaOP op=destructorOp;
+			personaOp op=destructorOp;
                         std::vector<unsigned char> rpcOut;
 			std::vector<unsigned char> rpcIn;
 
@@ -58,15 +58,15 @@ class Persona{
 		}
 
                 //Setters
-                void setNombre(std::string dato);
-                void setDni(std::string dato);
-                void setEdad(int dato);
+                void setNombre(std::string dato){};
+                void setDni(std::string dato){};
+                void setEdad(int dato){};
 
                 //Getters
-                std::string getNombre();
-                std::string getDni();
-                int getEdad();
+                std::string getNombre(){};
+                std::string getDni(){};
+                int getEdad(){};
 
-                void save(std::string fileName);
-                void load(std::string fileName);
+                void save(std::string fileName){};
+                void load(std::string fileName){};
 };
