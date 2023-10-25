@@ -2,9 +2,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include "utils.h"
-
 #include "operaciones.h"
-
 
 
 int main(int argc, char** argv)

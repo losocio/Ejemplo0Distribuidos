@@ -4,7 +4,7 @@
 #include "utils.h"
 #include "operaciones.h"
 
-
+// Implementacion operacion suma
 template <typename T>
 T suma(T op1, T op2)
 {
@@ -13,6 +13,7 @@ T suma(T op1, T op2)
 	
 }
 
+// Implementacion operacion suma de Vector3i
 int* sumaVector3i(int* op1, int* op2)
 {
 	int* res=new int[3];
@@ -22,14 +23,17 @@ int* sumaVector3i(int* op1, int* op2)
 	
 }
 
-
+// Atiende peticion del cliente para realiza una operacion
 void atiendeOperacion(int clientId){
-	   std::vector<unsigned char> rpcIn;
-	   recvMSG(clientId,rpcIn);
-	   operacion_t op=desempaquetaOperacion(rpcIn);
+	    std::vector<unsigned char> rpcIn;
+		// Se usa recvMSG() para en recibir y guardar los datos de la operacion (como su tipo, etc). Dichos datos se guardan en el vector rpcIn
+	    recvMSG(clientId,rpcIn);
+		// Se utiliza desempaquetaOperacion() para sacar el objeto de tipo operacion_t del mensaje recibido
+	    operacion_t op=desempaquetaOperacion(rpcIn);
 	   
-	   switch(op.tipoOperacion)
-	   {
+	   // Se realiza el computo dependiendo del tipo de operacion que nos pida el cliente
+	    switch(op.tipoOperacion)
+	    {
 		 case opSumaInt:
 		 {
 			 std::vector<int> res(1);
@@ -73,24 +77,25 @@ void atiendeOperacion(int clientId){
 
 int main(int argc, char** argv)
 {
-	//iniciar un servidor
+	// Iniciar un servidor en puerto 60000
     auto serverSocket=initServer(60000);
+
     while(1){
-		//esperar conexiones en puerto
-         while(!checkClient()){
-             usleep(1000);
+		// Esperar conexiones en puerto
+        while(!checkClient()){
+            usleep(1000);
         }
 		
-		//resolver identificador Cliente
-       int clientId=getLastClientID();
+		// Una vez hay conexion, se atienden las peticiones del cliente 
+        int clientId=getLastClientID();
 	    atiendeOperacion(clientId);
 		atiendeOperacion(clientId);
 
-	   closeConnection(clientId);
-   }
+		// Cerrar conexion
+	    closeConnection(clientId);
+    }
 
     close(serverSocket);
     return 0;
-
       
 }
