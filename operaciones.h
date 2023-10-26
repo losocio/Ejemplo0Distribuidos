@@ -8,7 +8,8 @@ typedef enum{
 	,opSumaFloat=2
 	,opSumaDoubles=3
 	,opSumaVector3Int=4
-	
+	,opGetNombre=5
+	,opGetDni=6//TODO creo que añadio esta linea y la anterior
 }operacionesEnum;
 
 #define MSG_OK 1
@@ -66,7 +67,12 @@ inline void pack(std::vector<unsigned char> &packet,T data){
 	
 }
 
-
+//pack for vector
+template<typename T>
+inline void packv(std::vector<unsigned char> &packet,T* data, int dataSize){
+	for(int i=0;i<dataSize;i++)
+		pack(packet,data[i]);
+}
 
 template<typename T>
 inline T unpack(std::vector<unsigned char> &packet){	
@@ -85,7 +91,12 @@ inline T unpack(std::vector<unsigned char> &packet){
 	return data;
 }
 
-
+//unpack for vector
+template<typename T>
+inline void unpackv(std::vector<unsigned char> &packet,T* data, int dataSize){
+	for(int i=0;i<dataSize;i++)
+		data[i]=unpack<T>(packet);
+}
 
 inline void empaquetaOperacion( std::vector<unsigned char> &packet,operacion_t  op)
 {

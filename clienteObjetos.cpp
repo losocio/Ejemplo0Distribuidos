@@ -14,5 +14,7 @@ int main(int argc, char** argv)
 
 	p.save("juan.fran");
 
+	std::cout<<"La persona con el nombre"<<p.getNombre()<<" tiene el DNI "<<p.getDni()<<"\n";
+
 	return 0;
 }
