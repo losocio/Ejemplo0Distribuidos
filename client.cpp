@@ -18,7 +18,7 @@ int main(int argc, char** argv)
 	std::copy(mensaje.begin(),mensaje.end(),msgOut.begin());
 	//enviar mensaje
 	sendMSG(serverConnection.serverId,msgOut);
-	//cerrar conexion*/
+	*/
 	operacion_t op;
 	op.tipoOperacion=opSumaInt;
 	op.sumaInt.operando1=5;
@@ -28,7 +28,7 @@ int main(int argc, char** argv)
 	empaquetaOperacion(rpcOut,op); 
 	
 	
-	
+
 	sendMSG(serverConnection.serverId,rpcOut);
 	std::vector<int> res;
 	recvMSG(serverConnection.serverId,res);
