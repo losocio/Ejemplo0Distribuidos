@@ -97,7 +97,7 @@ void recvMSG(int clientID, std::vector<t> &data){
 
 
     connection_t connection=clientList[clientID];
-}
+
     int socket= connection.socket;
 
     char msg=0;

@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <iostream>
 #include "utils.h"
+
 #include "operaciones.h"
+
 
 
 int main(int argc, char** argv)
@@ -18,7 +20,7 @@ int main(int argc, char** argv)
 	std::copy(mensaje.begin(),mensaje.end(),msgOut.begin());
 	//enviar mensaje
 	sendMSG(serverConnection.serverId,msgOut);
-	*/
+	//cerrar conexion*/
 	operacion_t op;
 	op.tipoOperacion=opSumaInt;
 	op.sumaInt.operando1=5;
