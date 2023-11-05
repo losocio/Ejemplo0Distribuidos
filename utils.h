@@ -87,11 +87,11 @@ int getClientID(int numClient);
 int getLastClientID();
 
 
-
+// variable global de tipo map donde se guardan todos los clientes conectados
+// map funciona con clave-valor
 extern std::map<unsigned int,connection_t> clientList;
 
-
-
+// template function have to ve defined in the header file
 template<typename t>
 void recvMSG(int clientID, std::vector<t> &data){
 
@@ -156,7 +156,7 @@ void recvMSG(int clientID, std::vector<t> &data){
 
 
 /** precondiciones, variables, etc...**/
-
+// template function have to ve defined in the header file
 template<typename t>
 void sendMSG(int clientID, std::vector<t> &data){
 
@@ -205,6 +205,7 @@ void sendMSG(int clientID, std::vector<t> &data){
 
 }
 
+// template function have to ve defined in the header file
 template<typename t>
 void getMSG(int clientID,std::vector<t> &data)
 {
