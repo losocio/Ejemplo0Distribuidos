@@ -2,7 +2,7 @@
 *.*
 
 # Exceptions
-!*.txt
+!CMakeLists.txt
 
 !*.h
 
@@ -10,6 +10,6 @@
 
 !*.c
 
-!*.md
+!README.md
 
 !LICENSE
