@@ -4,6 +4,8 @@
 # Exceptions
 !CMakeLists.txt
 
+!oldgitignore.txt
+
 !*.h
 
 !*.cpp
