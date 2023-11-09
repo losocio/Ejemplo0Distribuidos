@@ -72,7 +72,7 @@ typedef struct resultado_t{
 
 
 template<typename T>
-inline void pack(std::vector<unsigned char> &packet,T data){
+inline void pack(std::vector<unsigned char> &packet, T data){
 	
 	int size=packet.size();
 	unsigned char *ptr=(unsigned char*)&data;
@@ -88,7 +88,6 @@ inline void packv(std::vector<unsigned char> &packet,T* data,int dataSize)
 	for(int i=0;i<dataSize;i++)
 			 	pack(packet,data[i]);
 }
-
 
 
 template<typename T>
